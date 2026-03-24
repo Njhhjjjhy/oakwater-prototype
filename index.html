@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Oakwater Capital">
+<meta name="theme-color" content="#f5f5eb">
+<meta name="format-detection" content="telephone=no">
+<meta name="description" content="Oakwater Capital is a Singapore-based licensed fund management company investing in Artificial Intelligence, Environment & Sustainability and Health & Lifestyle sectors.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Oakwater Capital — Investing in Tomorrow's Impact Technologies">
+<meta property="og:description" content="Singapore-based licensed fund management company investing in AI, Environment & Sustainability and Health & Lifestyle sectors.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/icon-512.png">
+<meta property="og:locale" content="en_SG">
+
+<!-- Favicon & Icons -->
+<link rel="icon" href="images/favicon.ico" sizes="32x32">
+<link rel="icon" href="images/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<title>Oakwater Capital — Investing in Tomorrow's Impact Technologies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Raleway:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Raleway:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Raleway:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --sand: #f5f5eb;
+  --ink: #0a1e25;
+  --ink-70: rgba(10, 30, 37, 0.7);
+  --ink-40: rgba(10, 30, 37, 0.65);
+  --ink-20: rgba(10, 30, 37, 0.55);
+  --ink-10: rgba(10, 30, 37, 0.1);
+  --ink-06: rgba(10, 30, 37, 0.06);
+  --teal: #0F6466;
+  --teal-dark: #4B8E89;
+  --teal-10: rgba(15, 100, 102, 0.1);
+  --teal-15: rgba(15, 100, 102, 0.15);
+  --white: #ffffff;
+
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Raleway', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--sand);
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+a { color: inherit; text-decoration: none; }
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--teal);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0 0 8px 8px;
+  z-index: 200;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+  outline: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ── iOS / Touch ── */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+}
+
+/* Prevent iOS tap highlight, use custom instead */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Touch-friendly active states (haptic feedback feel) */
+.hero-cta:active,
+.nav-links a:active,
+.mobile-menu a:active,
+.invest-item:active,
+.team-header:active {
+  opacity: 0.7;
+  transition: opacity 0.05s;
+}
+
+/* Safe area insets for notched iPhones */
+.nav {
+  padding-top: env(safe-area-inset-top);
+}
+
+.footer-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Prevent text selection on interactive elements */
+.team-header,
+.hero-cta,
+.hamburger,
+.nav-links a {
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+/* Prevent iOS zoom on input focus (no inputs, but defensive) */
+@supports (-webkit-touch-callout: none) {
+  /* iOS-only overscroll rubber band color */
+  body { background: var(--sand); }
+
+  /* Fix 100vh issue on iOS Safari */
+  .hero-wrap {
+    min-height: calc(100dvh - 64px);
+  }
+
+  /* Fix iOS position:fixed with keyboard */
+  .nav { position: -webkit-sticky; position: sticky; }
+}
+
+/* ── Nav ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 64px;
+  background: var(--sand);
+  border-bottom: 1px solid var(--ink-10);
+  display: flex;
+  align-items: center;
+}
+.nav.scrolled { box-shadow: 0 1px 0 var(--ink-06); }
+.nav-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+.nav-logo img {
+  height: 28px;
+  width: auto;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  letter-spacing: 0.15em;
+  color: var(--ink);
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-links a:hover { color: var(--teal); }
+
+.hamburger {
+  display: none; background: none; border: none;
+  cursor: pointer; padding: 12px;
+  min-width: 44px; min-height: 44px;
+  flex-direction: column; align-items: center; justify-content: center;
+}
+.hamburger span {
+  display: block; width: 20px; height: 1.5px;
+  background: var(--ink); margin: 4.5px 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; position: fixed;
+  top: 64px; left: 0; right: 0; bottom: 0;
+  background: var(--sand); z-index: 99;
+  padding: 20px 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+.mobile-menu.open { display: block; }
+.mobile-menu ul { list-style: none; }
+.mobile-menu a {
+  display: block;
+  padding: 16px 40px;
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink-06);
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-menu a:hover { color: var(--teal); }
+
+/* ── Containers ── */
+.outer { max-width: 1920px; margin: 0 auto; padding: 0 20px; }
+.inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+/* ── Hero ── */
+.hero {
+  padding-top: 64px; /* nav height */
+}
+.hero-wrap {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+}
+.hero-content { max-width: 680px; }
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(2.8rem, 5vw, 3.75rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--teal);
+  margin-bottom: 20px;
+}
+.hero-body {
+  font-family: var(--sans);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--ink-70);
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  letter-spacing: 0.15em;
+  color: var(--white);
+  background: var(--teal);
+  border: 2px solid var(--teal);
+  border-radius: 50px;
+  padding: 12px 20px 12px 24px;
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-cta:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
+.cta-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  color: var(--white);
+  font-size: 0.85rem;
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-cta:hover .cta-arrow { background: rgba(255,255,255,0.3); transform: translateX(4px); }
+
+/* ── Section spacing ── */
+.section { padding: 80px 0; }
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  letter-spacing: 0.15em;
+  color: var(--teal);
+  margin-bottom: 40px;
+}
+
+/* ── Who We Are ── */
+.who { background: var(--white); border-radius: 12px; }
+.who-intro {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--ink);
+  max-width: 640px;
+  margin-bottom: 60px;
+}
+.pillars {
+  display: flex;
+  gap: 20px;
+}
+.pillar {
+  flex: 1;
+  background: var(--sand);
+  border-radius: 12px;
+  padding: 40px;
+}
+.pillar-num {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+
+  letter-spacing: 0.15em;
+  color: var(--teal);
+  margin-bottom: 20px;
+}
+.pillar h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.pillar p {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ink-70);
+}
+.who-conclusion {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--ink-10);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--ink-70);
+  max-width: 640px;
+}
+
+/* ── Our Story ── */
+.story { background: var(--sand); }
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+.story-text p {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ink-70);
+  margin-bottom: 20px;
+}
+.story-quote {
+  font-family: var(--serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  color: var(--teal);
+  margin-top: 20px;
+}
+
+/* ── Investment Areas ── */
+.invest {
+  background: var(--white);
+  border-radius: 12px;
+}
+.invest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.invest-col {
+  background: var(--sand);
+  border-radius: 12px;
+  padding: 40px;
+}
+.invest-col h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 24px;
+  line-height: 1.15;
+}
+.invest-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-top: 1px solid var(--ink-10);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--ink-70);
+  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+.invest-item:hover { color: var(--teal); transform: translateX(8px); }
+.invest-item::after {
+  content: '→';
+  font-size: 0.8rem;
+  color: var(--ink-20);
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.invest-item:hover::after { color: var(--teal); transform: translateX(4px); }
+
+/* ── Risk Factors ── */
+.risk {
+  background: var(--ink);
+  color: var(--sand);
+  border-radius: 12px;
+}
+.risk .section-label { color: var(--teal-dark); }
+.risk-intro {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(245,245,235,0.75);
+  max-width: 600px;
+  margin-bottom: 60px;
+}
+.risk-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.risk-col-title {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  letter-spacing: 0.15em;
+  color: rgba(245,245,235,0.55);
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(245,245,235,0.1);
+  margin-bottom: 0;
+}
+.risk-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(245,245,235,0.06);
+}
+.risk-check {
+  color: var(--teal-dark);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+.risk-row span:last-child {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: rgba(245,245,235,0.75);
+}
+
+/* ── Team ── */
+.team { background: var(--sand); }
+.team-member { border-bottom: 1px solid var(--ink-10); }
+.team-member:first-child { border-top: 1px solid var(--ink-10); }
+
+.team-header {
+  display: flex;
+  align-items: center;
+  padding: 24px 0;
+  cursor: pointer;
+  gap: 20px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.team-header:hover { transform: translateX(8px); }
+.team-member:hover .team-name { color: var(--teal); }
+.team-header:active { background: var(--teal-10); border-radius: 8px; margin: 0 -8px; padding-left: 8px; padding-right: 8px; }
+
+.team-photo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  filter: grayscale(100%);
+  transition: filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.team-member:hover .team-photo,
+.team-member.open .team-photo { filter: grayscale(0%); }
+
+.team-name {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  font-weight: 500;
+  color: var(--ink);
+  flex: 1;
+  line-height: 1.15;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.team-meta {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--ink-40);
+  white-space: nowrap;
+}
+.team-toggle {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--ink-10);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--ink-40);
+  flex-shrink: 0;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.team-member.open .team-toggle {
+  transform: rotate(45deg);
+  background: var(--teal);
+  color: var(--white);
+  border-color: var(--teal);
+}
+
+.team-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.team-member.open .team-body { grid-template-rows: 1fr; }
+.team-body-inner { overflow: hidden; }
+.team-bio {
+  padding: 0 0 32px 0;
+  max-width: 640px;
+}
+.team-bio p {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--ink-70);
+  margin-bottom: 12px;
+}
+.team-bio p:last-child { margin-bottom: 0; }
+.team-bio strong { font-weight: 600; color: var(--ink); }
+
+/* ── Footer ── */
+.footer {
+  background: var(--ink);
+  color: rgba(245,245,235,0.55);
+  padding: 64px 0 0;
+  border-radius: 12px 12px 0 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(245,245,235,0.1);
+}
+.footer-logo {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgba(245,245,235,0.9);
+  margin-bottom: 20px;
+}
+.footer p {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+.footer a { color: var(--teal-dark); transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.footer a:hover { color: #7AB5B0; }
+.footer-right { text-align: right; }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.footer-social { display: flex; gap: 24px; }
+.footer-social a {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+
+  letter-spacing: 0.12em;
+  color: rgba(245,245,235,0.55);
+}
+.footer-social a:hover { color: rgba(245,245,235,0.8); }
+.footer-copy {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: rgba(245,245,235,0.55);
+}
+
+/* ── Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .inner { padding: 0 20px; }
+  .nav-inner { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .pillars { flex-direction: column; }
+
+  .story-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .invest-grid { grid-template-columns: 1fr; }
+
+  .risk-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .team-meta { display: none; }
+
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-right { text-align: left; }
+}
+
+@media (max-width: 639px) {
+  .outer { padding: 0; }
+  .inner {
+    padding: 0 20px;
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+  .section { padding: 60px 0; }
+
+  /* Hero — use dvh for iOS Safari, generous thumb-zone padding */
+  .hero-wrap {
+    min-height: auto;
+    min-height: calc(100dvh - 64px - env(safe-area-inset-top));
+    padding: 48px 0 60px;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+  .hero-body {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Cards — more comfortable on small screens */
+  .pillar { padding: 24px; }
+  .invest-col { padding: 24px; }
+  .who .inner, .invest .inner { padding: 40px 20px; }
+  .risk .inner { padding: 40px 20px; }
+
+  /* No hover on touch — disable transform on touch devices */
+  .team-header:hover { transform: none; }
+  .invest-item:hover { transform: none; }
+
+  /* Team — bigger touch targets, more spacing */
+  .team-header {
+    padding: 20px 0;
+    gap: 16px;
+    min-height: 72px;
+  }
+  .team-photo {
+    width: 48px;
+    height: 48px;
+  }
+  .team-bio {
+    padding: 0 0 24px 0;
+  }
+  .team-bio p {
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 2.5rem 20px 0;
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+    border-radius: 0;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+
+  /* Nav on mobile */
+  .nav-inner {
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+
+  /* Mobile menu — full screen, safe areas */
+  .mobile-menu {
+    top: calc(64px + env(safe-area-inset-top));
+    padding-bottom: env(safe-area-inset-bottom);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-menu a {
+    padding: 20px;
+    padding-left: max(20px, env(safe-area-inset-left));
+    font-size: 1.5rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Section labels slightly bigger for readability */
+  .section-label { font-size: 0.8rem; }
+
+  /* Story quote more comfortable */
+  .story-quote {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  /* Invest items — more vertical space for touch */
+  .invest-item {
+    padding: 16px 0;
+    font-size: 0.85rem;
+    min-height: 48px;
+  }
+
+  /* Risk rows — touch-friendly spacing */
+  .risk-row {
+    padding: 14px 0;
+    min-height: 48px;
+  }
+
+  /* CTA — bigger on mobile for thumb tap */
+  .hero-cta {
+    padding: 14px 22px 14px 28px;
+    font-size: 0.85rem;
+  }
+}
+
+/* iPhone SE / very small screens */
+@media (max-width: 374px) {
+  .hero h1 { font-size: 2rem; }
+  .who-intro { font-size: 1.25rem; }
+  .pillar h3, .invest-col h3 { font-size: 1.25rem; }
+  .team-name { font-size: 1.1rem; }
+  .pillar { padding: 20px; }
+  .invest-col { padding: 20px; }
+}
+
+/* Landscape iPhone */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-wrap {
+    min-height: auto;
+    padding: 40px 0;
+  }
+  .nav { position: sticky; }
+  .section { padding: 48px 0; }
+}
+
+@media (min-width: 1440px) {
+  .hero-wrap { padding: 120px 0; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Nav -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="images/oakwater-logo-clean.webp" alt="Oakwater Capital" width="86" height="28"></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#investment">Investment</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#investment">Investment</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main id="main-content">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="outer"><div class="inner">
+    <div class="hero-wrap">
+      <div class="hero-content">
+        <h1 class="reveal">Let's impact tomorrow</h1>
+        <p class="hero-body reveal">Investing in Tomorrow's Impact Technologies</p>
+        <a href="#about" class="hero-cta reveal">
+          Learn more
+          <span class="cta-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- Who We Are -->
+<section class="section" id="about">
+  <div class="outer">
+    <div class="who">
+      <div class="inner" style="padding-top:80px;padding-bottom:80px;">
+        <h2 class="section-label reveal">Who we are</h2>
+        <p class="who-intro reveal">We believe there are three critical and irrepressible industries that will impact and shape our world of tomorrow.</p>
+
+        <div class="pillars reveal">
+          <div class="pillar">
+            <div class="pillar-num">01</div>
+            <h3>Artificial Intelligence</h3>
+            <p>We believe artificial intelligence, in all its diversity and applications, will have a profound impact on our world of tomorrow, influencing nearly every aspect of society, economy and daily life.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">02</div>
+            <h3>Environment and Sustainability</h3>
+            <p>We believe that the need for sustainable practices, environmental stewardship and the challenges of climate change will continue to shape global policies and impact group and individual practices in every sector of society.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">03</div>
+            <h3>Health and Lifestyle</h3>
+            <p>We believe that, as communities and generations continue to evolve, the interplay between healthcare advancements and lifestyle choices will impact the quality of life, economic productivity and social structures around the world.</p>
+          </div>
+        </div>
+
+        <p class="who-conclusion reveal">Oakwater Capital is a Singapore-based licensed fund management company that aims to provide our investor clients with expert advice and focused investment vehicles targeting Artificial Intelligence, Environment &amp; Sustainability and Health &amp; Lifestyle sectors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Story -->
+<section class="section story">
+  <div class="outer"><div class="inner">
+    <div class="story-grid">
+      <div>
+        <h2 class="section-label reveal">Our story</h2>
+      </div>
+      <div>
+        <div class="story-text reveal">
+          <p>We also believe that these three sectors will offer some of the greatest opportunities for maximizing return to savvy investors.</p>
+          <p>For us lucky ones, we meet many good people throughout our careers – friends, colleagues, fellow professionals. Over many years, we stay in touch with those whom we grow to like, to trust, to respect and, if we are luckier still, to share similar values and visions.</p>
+          <p>Sometimes, we are blessed with the opportunity to bring such people together, for a meaningful cause and a growing platform.</p>
+          <p>The traits that we value are nothing uncommon – integrity, humility, reliability, acumen, humanity and an implacable aspiration to make a positive impact on our world… and it is this last trait that sometimes drives people to heed their conscience and take uncommon action.</p>
+        </div>
+        <p class="story-quote reveal">Oakwater Capital is our action.</p>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- Investment Areas -->
+<section class="section" id="investment">
+  <div class="outer">
+    <div class="invest">
+      <div class="inner" style="padding-top:80px;padding-bottom:80px;">
+        <h2 class="section-label reveal">Primary areas of investment</h2>
+
+        <div class="invest-grid reveal">
+          <div class="invest-col">
+            <h3>Artificial Intelligence</h3>
+            <div class="invest-item">A.I. Healthcare</div>
+            <div class="invest-item">A.I. Transportation &amp; Robotics</div>
+            <div class="invest-item">A.I. Entertainment &amp; Media</div>
+            <div class="invest-item">A.I. Research &amp; Education</div>
+          </div>
+          <div class="invest-col">
+            <h3>Environment &amp; Sustainability</h3>
+            <div class="invest-item">Alternative Energies</div>
+            <div class="invest-item">Waste Management</div>
+            <div class="invest-item">Agro Technologies</div>
+            <div class="invest-item">Carbon Capture</div>
+          </div>
+          <div class="invest-col">
+            <h3>Health &amp; Lifestyle</h3>
+            <div class="invest-item">Medical Devices &amp; Wearables</div>
+            <div class="invest-item">Regenerative Medicine &amp; Stem Cell Therapy</div>
+            <div class="invest-item">Beauty &amp; Personal Care</div>
+            <div class="invest-item">Travel &amp; Experiential</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Risk Factors -->
+<section class="section" id="risk">
+  <div class="outer">
+    <div class="risk">
+      <div class="inner" style="padding-top:80px;padding-bottom:80px;">
+        <h2 class="section-label reveal">Investment risk factors</h2>
+        <p class="risk-intro reveal">Every potential investment consideration presents its own matrix of unique opportunities and challenges. Our investment decisions will rely on a rigorous algorithm of weighted-grade numerical results, deep analysis and comprehensive internal debate.</p>
+
+        <div class="risk-grid reveal">
+          <div>
+            <div class="risk-col-title">Project factors</div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Macro Impact</span></div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Leadership &amp; Management</span></div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Commercialization</span></div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Sustainability/Profitability</span></div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Competition</span></div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Scalability</span></div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Regulatory Factors</span></div>
+          </div>
+          <div>
+            <div class="risk-col-title">Finance factors</div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Upside/Downside</span></div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Structure</span></div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Terms &amp; Conditions</span></div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Exit Strategy</span></div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Size</span></div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Portfolio Diversification</span></div>
+            <div class="risk-row"><span class="risk-check">✓</span><span>Extraneous Risks</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="section team" id="team">
+  <div class="outer"><div class="inner">
+    <h2 class="section-label reveal">Our team</h2>
+
+    <div class="team-list reveal">
+
+      <div class="team-member">
+        <div class="team-header" role="button" tabindex="0" aria-expanded="false" onclick="toggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle(this)}">
+          <img src="images/oakwater-julian.webp" alt="Julian Kim" class="team-photo" loading="lazy" width="56" height="56">
+          <div class="team-name">Julian Kim</div>
+          <div class="team-meta">Founder / CEO / Director · Singapore</div>
+          <div class="team-toggle">+</div>
+        </div>
+        <div class="team-body"><div class="team-body-inner"><div class="team-bio">
+          <p>Julian Kim has more than 30 years of experience in investment banking, capital markets and fixed income (sales, trading, derivatives, structuring).</p>
+          <p>He is the former Chairman/Chief Country Officer/Managing Director of all <strong>Deutsche Bank</strong> group activities in Korea. Previously, he also held senior executive positions at <strong>Lehman Brothers</strong> (Hong Kong and London), <strong>Lazard</strong> (London) and <strong>Manufacturers Hanover</strong>, now merged with <strong>JP Morgan</strong> (London and New York).</p>
+          <p>In subsequent years, he served as the CEO of a lithium mining project in Northern Argentina, the CFO/VP of a biotech company in Korea and wrote an award-winning historical fantasy novel published in Singapore and Korea.</p>
+          <p>Julian holds an MBA from <strong>Duke University</strong> and a BS in Aerospace Engineering from the <strong>University of Colorado</strong> (Boulder).</p>
+        </div></div></div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-header" role="button" tabindex="0" aria-expanded="false" onclick="toggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle(this)}">
+          <img src="images/oakwater-stefan.webp" alt="Stefan Dorfmeister" class="team-photo" loading="lazy" width="56" height="56">
+          <div class="team-name">Stefan Dorfmeister</div>
+          <div class="team-meta">Advisor · Vienna</div>
+          <div class="team-toggle">+</div>
+        </div>
+        <div class="team-body"><div class="team-body-inner"><div class="team-bio">
+          <p>Stefan Dorfmeister is a proven 30 year financier and entrepreneur with vast buy/sell-side experience in a wide spectrum of financial products and asset classes.</p>
+          <p>His experience covers a wide variety of financial products and asset classes including Credit, Commodities, Public Equities, Private Equity and Asset Management.</p>
+          <p>He is a former Managing Director of <strong>Goldman Sachs</strong> (Singapore) and previously served as Managing Director at <strong>Merrill Lynch</strong> (Hong Kong and London) and VP at <strong>JP Morgan</strong> (New York).</p>
+          <p>For several years, he also served as an Adjunct Associate Professor of Finance at the <strong>National University of Singapore</strong>.</p>
+          <p>Stefan holds an MBA from <strong>Harvard Business School</strong> and a Doctorate/PhD in Economics and Business Administration from <strong>Vienna University</strong>.</p>
+        </div></div></div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-header" role="button" tabindex="0" aria-expanded="false" onclick="toggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle(this)}">
+          <img src="images/oakwater-tom-shin.webp" alt="Thomas Shin" class="team-photo" loading="lazy" width="56" height="56">
+          <div class="team-name">Thomas Shin</div>
+          <div class="team-meta">Director · Seoul</div>
+          <div class="team-toggle">+</div>
+        </div>
+        <div class="team-body"><div class="team-body-inner"><div class="team-bio">
+          <p>Thomas Shin has more than 30 years of industry and consulting experience both in the U.S. and Korea. He has advised numerous top Korean chaebols and foreign multinational corporations.</p>
+          <p>Tom was the Head/Partner of <strong>Bain &amp; Company</strong>'s Korea office and served as the country head for almost a decade. Prior to Bain, he was the Founder and Head of <strong>A.T. Kearney</strong>'s Korea office.</p>
+          <p>Currently, he serves as the leader of Bain's Organization practice in Korea and is a member of Bain's Results Delivery global steering committee.</p>
+          <p>Tom is an expert in global Advanced Manufacturing &amp; Services, Chemicals, Energy &amp; Natural Resources and Infrastructure/Construction/Building practices. He has advised clients in a broad range of industries, including telecoms, electronics, healthcare, consumer products and industrial goods &amp; services.</p>
+          <p>Tom holds an MBA from <strong>University of Chicago</strong> and a Bachelor of Economics from <strong>Columbia University</strong>.</p>
+        </div></div></div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-header" role="button" tabindex="0" aria-expanded="false" onclick="toggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle(this)}">
+          <img src="images/oakwater-remy.webp" alt="Remy Klammers" class="team-photo" loading="lazy" width="56" height="56">
+          <div class="team-name">Remy Klammers</div>
+          <div class="team-meta">Advisor · Singapore</div>
+          <div class="team-toggle">+</div>
+        </div>
+        <div class="team-body"><div class="team-body-inner"><div class="team-bio">
+          <p>Remy Klammers has spent a career in leadership roles at global investment banks pioneering structured products and trading risk across the international markets.</p>
+          <p>He is currently the CEO of Namara Wealth Advisors in Singapore, an institutional grade financial services company specializing in sophisticated cross-asset investment platforms, structured wealth management, real estate acquisition and customized investment solutions.</p>
+          <p>Remy is a former Partner/Managing Director of <strong>Goldman Sachs</strong> where, at the age of 34, he led the firm's trading operations in Tokyo and London. He later joined <strong>Lehman Brothers</strong> in Tokyo as Managing Director and then <strong>Standard Chartered Bank</strong> in Singapore as the Global Head of Fixed Income. He started his banking career at <strong>BNP Paribas</strong>.</p>
+          <p>Remy holds an MSc in Electrical Engineering from <strong>Imperial College London</strong> and an Engineering Degree from <strong>Ecole Centrale-Supelec</strong> in France.</p>
+        </div></div></div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-header" role="button" tabindex="0" aria-expanded="false" onclick="toggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle(this)}">
+          <img src="images/oakwater-patrick.webp" alt="Patrick Han" class="team-photo" loading="lazy" width="56" height="56">
+          <div class="team-name">Patrick Han</div>
+          <div class="team-meta">Director · Seoul</div>
+          <div class="team-toggle">+</div>
+        </div>
+        <div class="team-body"><div class="team-body-inner"><div class="team-bio">
+          <p>Patrick Han has had a career in capital markets focusing on Asia and Emerging/Frontier Markets for more than 25 years, serving in London, Dubai, Singapore and now in Seoul.</p>
+          <p>Patrick is the former Head of International FIG in Singapore for the <strong>Maybank Group</strong>, the largest financial platform in Southeast Asia. There, he managed large-scale transactions across M&amp;A, project finance, private equity and corporate banking.</p>
+          <p>In his 16 years in London, Patrick held senior roles at <strong>JP Morgan</strong>, <strong>RBS</strong> and <strong>CGS-CIMB</strong>.</p>
+          <p>Due to his unique track record across North Asia, Southeast Asia and the Middle East, Patrick has exceptional access to a network of governments, sovereign wealth funds, family offices and conglomerates across geographies.</p>
+          <p>Patrick graduated with a B.A. degree from <strong>Yonsei University</strong>.</p>
+        </div></div></div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-header" role="button" tabindex="0" aria-expanded="false" onclick="toggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle(this)}">
+          <img src="images/oakwater-han.webp" alt="Han M. Yong" class="team-photo" loading="lazy" width="56" height="56">
+          <div class="team-name">Han M. Yong</div>
+          <div class="team-meta">Partner · Singapore</div>
+          <div class="team-toggle">+</div>
+        </div>
+        <div class="team-body"><div class="team-body-inner"><div class="team-bio">
+          <p>Han M. Yong has over 30 years of experience in financial and commercial roles in Asia and New Zealand.</p>
+          <p>He was involved with <strong>AWN Holdings</strong> (a certified B Corporation investment holding company formerly listed on ASX) from 2014 to 2024 in some of its operating enterprises including renewable solar energy where he was employee no. 2 for <strong>VivoPower</strong> (Nasdaq:VVPR), a start-up founded in August 2014 which subsequently got listed on Nasdaq in December 2016. Han was VivoPower's Director for Asia, exploring solar projects in Southeast Asia.</p>
+          <p>Previously, he held roles in the media and entertainment sectors as CFO (Asia) for <strong>Paramount</strong>; Finance Director/ CFO and Regional Client Finance Director with two global advertising agencies belonging to <strong>IPG</strong>.</p>
+          <p>In earlier years, he served as Accountant/Finance Manager/Financial Controller, for <strong>Multiplex Brookfields</strong> in New Zealand &amp; Singapore; and for Heritage Hotel in New Zealand.</p>
+          <p>Han holds a Bachelor of Commence from the <strong>University of Auckland</strong>.</p>
+        </div></div></div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-header" role="button" tabindex="0" aria-expanded="false" onclick="toggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle(this)}">
+          <img src="images/oakwater-chia-yew-boon.webp" alt="Chia Yew Boon" class="team-photo" loading="lazy" width="56" height="56">
+          <div class="team-name">Chia Yew Boon</div>
+          <div class="team-meta">Advisor · Singapore</div>
+          <div class="team-toggle">+</div>
+        </div>
+        <div class="team-body"><div class="team-body-inner"><div class="team-bio">
+          <p>Chia Yew Boon is a 40-year veteran in alternative investments, sovereign wealth fund management, blockchain investments, investment banking, education and government.</p>
+          <p>Formerly, he served as a SVP of <strong>Singapore GIC</strong> and Director of <strong>Singapore Economic Development Board</strong>.</p>
+          <p>Yew Boon is currently the CEO of <strong>Moreton Catalyst</strong>, a Singaporean-Australian JV advisory firm specializing in alternative investments and with close ties to several family offices.</p>
+          <p>As advisor and investor, he is involved with <strong>Helicap</strong>, a fintech with a top-performing credit portfolio, and <strong>Rosemoor Capital</strong>, a NY and London-based blockchain VC investment manager. As member of the board, he is currently serving in a SGX-listed real estate investment trust and a HK-listed energy systems integrator.</p>
+          <p>Yew Boon holds a Diplôme d'Ingénieur from <strong>École Nationale Superieure de Chimie de Strasbourg</strong>, France.</p>
+        </div></div></div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-header" role="button" tabindex="0" aria-expanded="false" onclick="toggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle(this)}">
+          <img src="images/oakwater-paul.webp" alt="Jonathan Paul" class="team-photo" loading="lazy" width="56" height="56">
+          <div class="team-name">Jonathan Paul</div>
+          <div class="team-meta">Advisor · Dubai</div>
+          <div class="team-toggle">+</div>
+        </div>
+        <div class="team-body"><div class="team-body-inner"><div class="team-bio">
+          <p>Jonathan Paul is a highly experienced veteran of the investment banking industry, with more than 25 years of service in various senior executive positions. His leadership roles have included, Global Head of Financial Markets at <strong>Standard Chartered Bank</strong> and Chairman of Global Markets Asia/Head of Corporate Finance Asia/Global Co-Head of Institutional Client Group at <strong>Deutsche Bank</strong>, where he was a Member of the Global Markets and Global Banking Management Committees. Previous to these, he also held executive sales positions in the Fixed Income divisions of <strong>Goldman Sachs</strong> and <strong>Salomon Brothers</strong>. During his extensive career, Jonathan was stationed in London, New York, Hong Kong and Singapore.</p>
+          <p>At present, he is the Co-Founder and CEO of <strong>Adatos.AI</strong>, a company that builds and deploys artificial intelligence solutions using deep learning, with a focus on using advanced neural networks to read satellite data for precision agriculture.</p>
+          <p>Jonathan holds a Bachelor's degree in Engineering from <strong>University of Bath</strong>.</p>
+        </div></div></div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-header" role="button" tabindex="0" aria-expanded="false" onclick="toggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle(this)}">
+          <img src="images/oakwater-michael-yap.webp" alt="Michael Yap" class="team-photo" loading="lazy" width="56" height="56">
+          <div class="team-name">Michael Yap</div>
+          <div class="team-meta">Advisor · Singapore</div>
+          <div class="team-toggle">+</div>
+        </div>
+        <div class="team-body"><div class="team-body-inner"><div class="team-bio">
+          <p>Michael Yap has more than 25 years of experience as an international consultant and accountant specializing in MNC's, international and national oil companies, as well as startups and new ventures in the energy industry.</p>
+          <p>Having joined <strong>PwC</strong> Singapore in 1997, he was stationed in the US, Australia, Hong Kong and Thailand and was a Partner with <strong>PwC</strong> China.</p>
+          <p>In his career, he assisted many industry giants in transforming from oil &amp; gas to energy players. These included developing low carbon energies, unconventional deposits, carbon reduction, as well as ESG reporting. He has extensive on-site project experience in Africa, Asia, North/South America, Australia and has a deep appreciation of the energy transformation challenges faced by global energy markets.</p>
+          <p>Michael holds a Bachelor of Accountancy from <strong>Nanyang Technological University</strong> (Singapore) and is a qualified Australian Chartered Accountant.</p>
+        </div></div></div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-header" role="button" tabindex="0" aria-expanded="false" onclick="toggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle(this)}">
+          <img src="images/oakwater-nicholas-teo.webp" alt="Nicholas Teo" class="team-photo" loading="lazy" width="56" height="56">
+          <div class="team-name">Nicholas Teo</div>
+          <div class="team-meta">Advisor · Singapore</div>
+          <div class="team-toggle">+</div>
+        </div>
+        <div class="team-body"><div class="team-body-inner"><div class="team-bio">
+          <p>Nicholas Teo has 27 years of legal experience, being called to Bar of England and Wales in 1996 and Bar of Singapore in 1997. He practiced as a civil and commercial litigator for four years before commencing corporate law practice in 2002.</p>
+          <p>Nicholas' core practice areas are in the legal advisory of M&amp;A, Statutory/Regulatory Compliance, Corporate Governance, Contract Law, Company Law, Employment and Industrial Disputes, Landlord and Tenant, Charities, Management Corporations and Insolvency. In the Drafting of contracts and legal documents, Nicholas specializes in JV's and Investments, Employment, Media, Leases, Franchise, Partnership/Shareholder Agreements, Equity/Asset Sale and Purchase Agreements.</p>
+          <p>Nicholas is a Senior Consultant at <strong>Kelvin Chia Partnership</strong> in Singapore, where he has practiced law since 2000.</p>
+          <p>He holds an LLB, Law, from <strong>Leicester University</strong>.</p>
+        </div></div></div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-header" role="button" tabindex="0" aria-expanded="false" onclick="toggle(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle(this)}">
+          <img src="images/oakwater-john-chang.webp" alt="John Chang" class="team-photo" loading="lazy" width="56" height="56">
+          <div class="team-name">John Chang</div>
+          <div class="team-meta">Advisor · Hong Kong</div>
+          <div class="team-toggle">+</div>
+        </div>
+        <div class="team-body"><div class="team-body-inner"><div class="team-bio">
+          <p>John Chang is a General Partner and Co-Founder of <strong>Access Ventures</strong> LLC. Prior to co-founding the company in 2017, John spent 25 years in international finance participating and overseeing the expansion of global investment banks in Asia Pacific region. Prior to Access, he was APAC Co-Head of Equities and Head of Distribution for <strong>Barclays Capital</strong> Asia Limited. In this role, he was responsible for the management and strategic development of the firm's research, sales and trading divisions for the investment bank in the APAC region. also served on the Global Equities Executive Committee and was the Chairman for <strong>Barclays Capital Taiwan</strong> Limited. Before that, John was the Country Head for <strong>Barclays Capital Korea</strong> Ltd and was also responsible for establishing the Korea operations. Prior to Barclays, John was the CEO of <strong>Deutsche Securities Korea</strong> and also the head of their Korean Equities business.</p>
+          <p>John was born in Seoul, South Korea but was raised in the US and Canada from the age of four. He received his Bachelor of Arts in Psychology from <strong>Duke University</strong>.</p>
+        </div></div></div>
+      </div>
+
+    </div>
+  </div></div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer" id="contact">
+  <div class="outer"><div class="inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="images/oakwater-logo-clean.webp" alt="Oakwater Capital" width="73" height="24" style="filter:brightness(0) invert(1) brightness(0.85);"></div>
+        <p>Oakwater Capital Pte. Ltd.</p>
+        <p>76 Playfair Road #03-02, Singapore 367996</p>
+        <p style="margin-top:12px"><a href="mailto:jkim@oakwatercap.com">jkim@oakwatercap.com</a></p>
+      </div>
+      <div class="footer-right">
+        <p>Company Registration Number UEN 202140970E</p>
+        <p style="margin-top:12px">Venture Capital Fund Management License CMS101340</p>
+        <p>Issued by the Monetary Authority of Singapore</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-social">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+      </div>
+      <div class="footer-copy">&copy; 2025 Oakwater Capital Pte. Ltd.</div>
+    </div>
+  </div></div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10), { passive: true });
+
+// iOS body scroll lock helper
+let scrollPos = 0;
+function lockScroll() {
+  scrollPos = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollPos}px`;
+  document.body.style.width = '100%';
+}
+function unlockScroll() {
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, scrollPos);
+}
+
+const hamburger = document.getElementById('hamburger');
+const mm = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mm.classList.toggle('open');
+  const isOpen = mm.classList.contains('open');
+  if (isOpen) { lockScroll(); } else { unlockScroll(); }
+  hamburger.setAttribute('aria-expanded', String(isOpen));
+  if (isOpen) mm.querySelector('a').focus();
+});
+mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hamburger.classList.remove('active'); mm.classList.remove('open');
+  unlockScroll();
+}));
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+function toggle(header) {
+  const m = header.closest('.team-member');
+  const wasOpen = m.classList.contains('open');
+  document.querySelectorAll('.team-member.open').forEach(o => {
+    if (o !== m) {
+      o.classList.remove('open');
+      o.querySelector('.team-header').setAttribute('aria-expanded', 'false');
+    }
+  });
+  m.classList.toggle('open', !wasOpen);
+  header.setAttribute('aria-expanded', String(!wasOpen));
+}
+
+// Touch-friendly: close team accordion on outside tap
+document.addEventListener('touchstart', (e) => {
+  if (!e.target.closest('.team-member')) {
+    document.querySelectorAll('.team-member.open').forEach(m => {
+      m.classList.remove('open');
+      m.querySelector('.team-header').setAttribute('aria-expanded', 'false');
+    });
+  }
+}, { passive: true });
+
+// iOS: handle orientation change
+window.addEventListener('orientationchange', () => {
+  // Force recalculate viewport height after orientation change
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}, { passive: true });
+
+// Set initial --vh for iOS
+document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+window.addEventListener('resize', () => {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}, { passive: true });
+
+// Mobile menu focus trap
+document.addEventListener('keydown', (e) => {
+  if (!mm.classList.contains('open')) return;
+  if (e.key === 'Escape') {
+    hamburger.classList.remove('active');
+    mm.classList.remove('open');
+    document.body.style.overflow = '';
+    hamburger.focus();
+    return;
+  }
+  if (e.key !== 'Tab') return;
+  const focusable = mm.querySelectorAll('a');
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault(); last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault(); first.focus();
+  }
+});
+</script>
+</body>
+</html>
