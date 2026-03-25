@@ -1,0 +1,82 @@
+.risk {
+  background: var(--ink);
+  color: var(--sand);
+  border-radius: 12px;
+}
+.risk .section-label { color: var(--teal-dark); }
+.risk-intro {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  line-height: 0.917;
+  letter-spacing: -0.02em;
+  color: rgba(245,245,235,0.75);
+  max-width: 600px;
+  margin-bottom: 24px;
+}
+
+/* ── Approach grid ── */
+.approach-a-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.approach-a-card {
+  background: rgba(245,245,235,0.06);
+  border: 1px solid rgba(245,245,235,0.08);
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: approach-card-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 0.06s);
+  animation-play-state: paused;
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: rgba(245,245,235,0.85);
+}
+@keyframes approach-card-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+.approach-a-card:hover {
+  background: rgba(75, 142, 137, 0.12);
+  border-color: rgba(75, 142, 137, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.approach-a-card svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  stroke: var(--teal-dark);
+  stroke-width: 1.5;
+  fill: none;
+  margin-top: 2px;
+  opacity: 0.7;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.approach-a-card:hover svg { opacity: 1; }
+.approach-a-heading {
+  grid-column: 1 / -1;
+  font-family: var(--nav);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: rgba(245,245,235,0.4);
+  padding-bottom: 12px;
+  margin-top: 24px;
+}
+.approach-a-heading:first-child { margin-top: 0; }
+
+.approach-a-divider {
+  grid-column: 1 / -1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(245,245,235,0.02) 0%, rgba(75,142,137,0.3) 50%, rgba(245,245,235,0.02) 100%);
+  margin-top: 8px;
+}

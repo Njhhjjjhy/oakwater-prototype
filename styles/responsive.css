@@ -1,0 +1,131 @@
+@media (max-width: 1023px) {
+  .inner { padding: 0 20px; }
+  .nav-inner { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .story-grid { grid-template-columns: 1fr; gap: 24px; }
+
+  .invest-cards { grid-template-columns: 1fr; max-width: 640px; }
+  .invest-card { padding: 32px; }
+
+  .team-meta { display: none; }
+
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-right { text-align: left; }
+
+  .approach-a-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 639px) {
+  .outer { padding: 0; }
+  .inner {
+    padding: 0 20px;
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+  .section { padding: 32px 0; }
+  .section-divider { padding: 0 20px; }
+
+  /* Hero */
+  .hero-wrap {
+    min-height: auto;
+    padding: 140px 0 80px;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 20vw, 6rem);
+    line-height: 0.85;
+  }
+  .hero-body {
+    font-size: 1.125rem;
+    line-height: 1.167;
+  }
+
+  .risk .inner { padding: 32px 20px; }
+
+  /* No hover on touch */
+  .team-header:hover { transform: none; }
+
+  /* Team — bigger touch targets */
+  .team-header {
+    padding: 20px 0;
+    gap: 16px;
+    min-height: 72px;
+  }
+  .team-photo {
+    width: 48px;
+    height: 48px;
+  }
+  .team-bio {
+    padding: 0 0 16px 0;
+  }
+  .team-bio p {
+    font-size: 1.125rem;
+    line-height: 1.167;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 2.5rem 20px 0;
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+    border-radius: 0;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+
+  /* Nav on mobile */
+  .nav-inner {
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    top: calc(64px + env(safe-area-inset-top));
+    padding-bottom: env(safe-area-inset-bottom);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-menu a {
+    padding: 20px;
+    padding-left: max(20px, env(safe-area-inset-left));
+    font-size: 1.5rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .section-label { font-size: 1rem; }
+
+  .story-quote-wrap { margin-top: 24px; padding: 24px 0; }
+  .story-quote { font-size: 1.75rem; }
+
+  /* Approach */
+  .approach-a-grid { grid-template-columns: 1fr; }
+  .approach-a-card { padding: 16px; }
+}
+
+/* iPhone SE / very small screens */
+@media (max-width: 374px) {
+  .hero h1 { font-size: 2rem; }
+  .who-intro { font-size: 1.5rem; }
+  .team-name { font-size: 1.5rem; }
+}
+
+/* Landscape iPhone */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-wrap {
+    min-height: auto;
+    padding: 40px 0;
+  }
+  .nav { position: sticky; }
+  .section { padding: 48px 0; }
+}
+
+@media (min-width: 1440px) {
+  .hero-wrap { padding: 160px 0 100px; }
+}
