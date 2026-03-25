@@ -12,11 +12,23 @@
   border-bottom: 1px solid rgba(245,245,235,0.1);
 }
 .footer-logo {
-  font-family: var(--nav);
-  font-weight: 700;
-  font-size: 1rem;
-  color: rgba(245,245,235,0.9);
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 20px;
+}
+.footer-logo-text {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1;
+  color: rgba(245,245,235,0.9);
+}
+.footer-logo-text span {
+  font-family: var(--sans);
+  font-weight: 400;
+  color: rgba(245,245,235,0.5);
+  margin-left: 4px;
 }
 .footer p {
   font-family: var(--sans);
