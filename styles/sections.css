@@ -17,10 +17,27 @@
   position: relative;
 }
 .invest-card {
-  background: var(--white);
+  background: rgba(250, 250, 242, 0.7);
+  border: 1.5px solid rgba(10, 30, 37, 0.18);
   border-radius: 28px;
-  padding: 20px;
+  padding: 20px 20px 28px;
+  position: relative;
+  overflow: hidden;
   transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Corner accent — rotated rounded rectangle echoing hero geometry */
+.invest-card::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 64px;
+  height: 64px;
+  border: 2px solid var(--teal);
+  border-radius: 14px;
+  transform: rotate(15deg);
+  opacity: 0.25;
+  pointer-events: none;
 }
 .invest-card:hover {
   box-shadow: 0 12px 40px rgba(10, 30, 37, 0.08);
@@ -30,7 +47,7 @@
   font-size: 1rem;
   font-weight: 400;
   color: var(--teal);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 .invest-card-title {
   font-family: var(--serif);
@@ -49,29 +66,6 @@
   color: var(--ink-70);
   margin-bottom: 24px;
 }
-.invest-card-tags {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-top: 20px;
-}
-.invest-card-tags li {
-  font-family: var(--sans);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1;
-  color: var(--ink-40);
-  background: var(--sand);
-  padding: 8px 14px;
-  border-radius: 100px;
-  opacity: 0;
-  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.invest-card:hover .invest-card-tags li {
-  background: var(--teal-10);
-  color: var(--teal);
-}
 
 /* ── Our Story ── */
 .story { background: var(--sand); }
@@ -86,7 +80,7 @@
 }
 .story-text p {
   font-family: var(--sans);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.5;
   color: var(--ink-40);
@@ -109,30 +103,27 @@
 }
 .story-quote .quote-word {
   display: inline-block;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  clip-path: inset(100% 0 0 0);
+  transform: translateY(20px);
+  transition: clip-path 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .story-quote-wrap.in-view .quote-word {
-  opacity: 1;
+  clip-path: inset(0 0 0 0);
   transform: translateY(0);
 }
-.quote-word:nth-child(1) { transition-delay: 0s; }
-.quote-word:nth-child(2) { transition-delay: 0.1s; }
-.quote-word:nth-child(3) { transition-delay: 0.2s; }
-.quote-word:nth-child(4) { transition-delay: 0.3s; }
-.quote-word:nth-child(5) { transition-delay: 0.4s; }
+.quote-word:nth-child(1) { transition-delay: 0.15s; }
+.quote-word:nth-child(2) { transition-delay: 0.3s; }
+.quote-word:nth-child(3) { transition-delay: 0.45s; }
+.quote-word:nth-child(4) { transition-delay: 0.6s; }
+.quote-word:nth-child(5) { transition-delay: 0.75s; }
 
-/* Quote line draw */
-.story-quote-wrap::after {
-  content: '';
+/* Quote line draw — animated via JS onScroll */
+.quote-line {
   display: block;
   width: 0;
   height: 2px;
   background: var(--teal);
   margin-top: 32px;
-  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
-}
-.story-quote-wrap.in-view::after {
-  width: 80px;
+  max-width: 80px;
 }

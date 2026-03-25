@@ -30,8 +30,8 @@
 
   /* Hero */
   .hero-wrap {
-    min-height: auto;
-    padding: 140px 0 80px;
+    min-height: calc(100svh - 64px);
+    padding: 40px 0;
   }
   .hero h1 {
     font-size: clamp(3rem, 16vw, 6rem);

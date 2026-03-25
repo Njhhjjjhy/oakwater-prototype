@@ -64,7 +64,11 @@ a { color: inherit; text-decoration: none; }
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal, .hero-word, .approach-a-card, .invest-card-tags li, .quote-word { opacity: 1; transform: none; }
+  .reveal, .hero-word, .approach-a-card, .invest-card-tags li, .quote-word, .story-text p, .subsection-label, .heading-word { opacity: 1; transform: none; }
+  .quote-word, .heading-word { clip-path: none; }
+  .color-wipe { background-position: 0% 0; -webkit-text-fill-color: currentColor; }
+  .text-highlight { background-size: 100% 100%; }
+  .weight-shift { font-weight: 400; }
 }
 
 /* ── iOS / Touch ── */
@@ -117,13 +121,31 @@ body {
 .inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
 /* ── Section spacing ── */
-.section { padding: 32px 0; }
+.section {
+  padding: 32px 0;
+  scroll-margin-top: 72px;
+}
 
 /* ── Content cards (GTE-style) ── */
 .content-card {
   background: var(--ink-06);
   border-radius: 24px;
   padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.content-card::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--teal);
+  border-radius: 14px;
+  transform: rotate(15deg);
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .section-divider {
@@ -131,7 +153,12 @@ body {
   margin: 0 auto;
   padding: 0 40px;
   height: 1px;
+  position: relative;
   background: linear-gradient(90deg, transparent, var(--ink-10) 20%, var(--ink-10) 80%, transparent);
+}
+/* Circle accent at divider center — removed */
+.section-divider::before {
+  display: none;
 }
 .section-label {
   font-family: var(--sans);
@@ -168,5 +195,55 @@ body {
 }
 .reveal.visible {
   opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Text effect: color wipe (muted → vivid sweep) ── */
+.color-wipe {
+  background: linear-gradient(90deg, currentColor 50%, var(--ink-40) 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.color-wipe.wiped {
+  background-position: 0% 0;
+}
+
+/* ── Text effect: highlight draw (marker stroke) ── */
+.text-highlight {
+  background: linear-gradient(90deg, var(--teal-10), var(--teal-10)) no-repeat left;
+  background-size: 0% 100%;
+  padding: 2px 6px;
+  margin: -2px -6px;
+  border-radius: 4px;
+  transition: background-size 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline;
+}
+.text-highlight.drawn {
+  background-size: 100% 100%;
+}
+
+/* ── Text effect: weight shift (light → normal) ── */
+.weight-shift {
+  font-weight: 300;
+  transition: font-weight 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.weight-shift.shifted {
+  font-weight: 400;
+}
+
+/* ── Text effect: heading word clip-path reveal ── */
+.heading-word {
+  display: inline-block;
+  clip-path: inset(100% 0 0 0);
+  transform: translateY(14px);
+  transition: clip-path 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.heading-word.revealed {
+  clip-path: inset(0 0 0 0);
   transform: translateY(0);
 }

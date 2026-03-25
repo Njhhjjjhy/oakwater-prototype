@@ -61,23 +61,26 @@
 .hamburger span {
   display: block; width: 20px; height: 1.5px;
   background: var(--teal);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  /* No CSS transition — anime.js handles all hamburger animation */
 }
-.hamburger.active span { background: var(--teal); }
-.hamburger.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 .mobile-menu {
-  display: none; position: fixed;
-  top: 64px; left: 0; right: 0; bottom: 0;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: var(--sand); z-index: 99;
-  padding: 20px 0;
-  overflow-y: auto;
+  padding: 84px 0 20px;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  clip-path: circle(0px at var(--menu-x, calc(100% - 38px)) var(--menu-y, 32px));
+  transition: clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
 }
-.mobile-menu.open { display: block; }
+.mobile-menu.open {
+  clip-path: circle(150% at var(--menu-x, calc(100% - 38px)) var(--menu-y, 32px));
+  transition: clip-path 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: auto;
+  overflow-y: auto;
+}
 .mobile-menu ul { list-style: none; }
 .mobile-menu a {
   display: block;

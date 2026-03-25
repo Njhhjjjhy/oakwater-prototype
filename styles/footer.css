@@ -3,6 +3,8 @@
   color: rgba(245,245,235,0.55);
   padding: 32px 0 0;
   border-radius: 12px 12px 0 0;
+  position: relative;
+  overflow: hidden;
 }
 .footer-grid {
   display: grid;
@@ -10,6 +12,11 @@
   gap: 24px;
   padding-bottom: 24px;
   border-bottom: 1px solid rgba(245,245,235,0.1);
+  position: relative;
+}
+/* Dot accent on footer divider */
+.footer-grid::after {
+  display: none;
 }
 .footer-logo {
   display: flex;
@@ -38,7 +45,6 @@
 .footer a { color: var(--teal-dark); transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
 .footer a:hover { color: #7AB5B0; }
 .footer-right { text-align: right; }
-
 .footer-bottom {
   display: flex;
   align-items: center;
@@ -51,8 +57,22 @@
   font-size: 1rem;
   line-height: 1;
   color: rgba(245,245,235,0.55);
+  position: relative;
+}
+.footer-social a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--teal-dark);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .footer-social a:hover { color: rgba(245,245,235,0.8); }
+.footer-social a:hover::after { transform: scaleX(1); }
 .footer-copy {
   font-family: var(--sans);
   font-size: 1rem;

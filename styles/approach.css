@@ -2,6 +2,8 @@
   background: var(--ink);
   color: var(--sand);
   border-radius: 12px;
+  position: relative;
+  overflow: hidden;
 }
 .risk .section-label { color: var(--teal-dark); }
 .risk-intro {
@@ -26,6 +28,8 @@
   border: 1px solid rgba(245,245,235,0.08);
   border-radius: 16px;
   padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: flex-start;
   gap: 14px;
@@ -38,7 +42,19 @@
   line-height: 1.2;
   color: rgba(245,245,235,0.85);
 }
-/* approach-card-in animation handled by anime.js */
+.approach-a-card::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--teal-dark);
+  border-radius: 8px;
+  transform: rotate(15deg);
+  opacity: 0.4;
+  pointer-events: none;
+}
 .approach-a-card:hover {
   background: rgba(75, 142, 137, 0.12);
   border-color: rgba(75, 142, 137, 0.3);
