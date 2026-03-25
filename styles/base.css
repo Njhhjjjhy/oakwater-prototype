@@ -16,7 +16,6 @@
 
   --serif: 'Lora', Georgia, serif;
   --sans: 'DM Sans', system-ui, sans-serif;
-  --nav: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -47,7 +46,7 @@ a { color: inherit; text-decoration: none; }
   padding: 0.75rem 1.5rem;
   background: var(--teal);
   color: var(--white);
-  font-family: var(--nav);
+  font-family: var(--sans);
   font-size: 1rem;
   font-weight: 500;
   border-radius: 0 0 8px 8px;
@@ -65,7 +64,7 @@ a { color: inherit; text-decoration: none; }
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal, .hero-word { opacity: 1; transform: none; }
+  .reveal, .hero-word, .approach-a-card, .invest-card-tags li, .quote-word { opacity: 1; transform: none; }
 }
 
 /* ── iOS / Touch ── */
@@ -120,6 +119,13 @@ body {
 /* ── Section spacing ── */
 .section { padding: 32px 0; }
 
+/* ── Content cards (GTE-style) ── */
+.content-card {
+  background: var(--ink-06);
+  border-radius: 24px;
+  padding: 32px;
+}
+
 .section-divider {
   max-width: 1200px;
   margin: 0 auto;
@@ -128,13 +134,30 @@ body {
   background: linear-gradient(90deg, transparent, var(--ink-10) 20%, var(--ink-10) 80%, transparent);
 }
 .section-label {
-  font-family: var(--nav);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.125;
-  letter-spacing: 0.15em;
+  font-family: var(--sans);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.2;
   color: var(--teal);
   margin-bottom: 16px;
+  padding-left: 16px;
+  border-left: 4px solid var(--teal);
+}
+.section-num {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.5;
+  margin-bottom: 4px;
+}
+.subsection-label {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--teal);
+  margin-bottom: 12px;
 }
 
 /* ── Reveal ── */

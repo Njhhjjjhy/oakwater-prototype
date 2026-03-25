@@ -1,6 +1,6 @@
 .team { background: var(--sand); }
 .team-member { border-bottom: 1px solid var(--ink-10); }
-.team-member:first-child { border-top: 1px solid var(--ink-10); }
+.team-member:first-child { border-top: none; }
 
 .team-header {
   display: flex;
@@ -28,8 +28,8 @@
 
 .team-name {
   font-family: var(--serif);
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: 1.25rem;
+  font-weight: 500;
   color: var(--ink);
   flex: 1;
   line-height: 1;
@@ -37,10 +37,10 @@
   transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .team-meta {
-  font-family: var(--nav);
+  font-family: var(--sans);
   font-size: 1rem;
   font-weight: 400;
-  letter-spacing: 0.1em;
+  letter-spacing: normal;
   color: var(--ink-40);
   white-space: nowrap;
 }

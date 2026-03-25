@@ -9,7 +9,7 @@
 <title>Design Proposals — Oakwater Capital</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -27,7 +27,6 @@
   --nav-height: 64px;
   --serif: 'Lora', Georgia, serif;
   --sans: 'DM Sans', system-ui, sans-serif;
-  --nav: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -203,7 +202,7 @@ html { -webkit-text-size-adjust: 100%; }
 .p-team-member.open .p-team-photo { filter: grayscale(0%); }
 .p-team-name {
   font-family: var(--serif);
-  font-weight: 400;
+  font-weight: 500;
   flex: 1;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -292,11 +291,11 @@ html { -webkit-text-size-adjust: 100%; }
 }
 .p-footer-social { display: flex; gap: 24px; }
 .p-footer-social a {
-  font-family: var(--nav);
+  font-family: var(--sans);
   font-size: 1rem;
 }
 .p-footer-copy {
-  font-family: var(--nav);
+  font-family: var(--sans);
   font-size: 1rem;
 }
 
@@ -341,9 +340,9 @@ html { -webkit-text-size-adjust: 100%; }
 }
 .p-approach-heading {
   grid-column: 1 / -1;
-  font-family: var(--nav);
+  font-family: var(--sans);
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   padding-bottom: 8px;
   margin-top: 16px;
 }
@@ -358,9 +357,9 @@ html { -webkit-text-size-adjust: 100%; }
 .p-story-grid { margin-top: 32px; }
 .p-story-text p {
   font-family: var(--sans);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 1.167;
+  line-height: 1.5;
   margin-bottom: 20px;
 }
 
@@ -398,10 +397,20 @@ html { -webkit-text-size-adjust: 100%; }
 /* Light sections */
 #proposal-a .p-section { padding: 32px 16px; }
 #proposal-a .p-section-label {
-  font-family: var(--nav);
-  font-size: 1rem;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1.75rem;
   color: var(--teal);
   margin-bottom: 16px;
+  padding-left: 16px;
+  border-left: 4px solid var(--teal);
+}
+#proposal-a .p-section-num {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.5;
+  margin-bottom: 4px;
 }
 #proposal-a .p-who-intro {
   font-family: var(--sans);
@@ -418,21 +427,22 @@ html { -webkit-text-size-adjust: 100%; }
   margin-bottom: 12px;
 }
 #proposal-a .pa-card-num {
-  font-family: var(--nav);
+  font-family: var(--sans);
   font-size: 1rem;
   color: var(--teal);
   margin-bottom: 8px;
 }
 #proposal-a .pa-card-title {
   font-family: var(--serif);
-  font-size: 1.5rem;
+  font-weight: 500;
+  font-size: 1.75rem;
   line-height: 1.1;
   color: var(--ink);
   margin-bottom: 12px;
 }
 #proposal-a .pa-card-body {
   font-family: var(--sans);
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.5;
   color: var(--ink-70);
 }
@@ -446,6 +456,14 @@ html { -webkit-text-size-adjust: 100%; }
   padding: 32px 16px;
 }
 #proposal-a .pa-risk .p-section-label { color: var(--teal-dark); }
+#proposal-a .p-subsection-label {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
 #proposal-a .pa-risk .p-approach-heading { color: rgba(245,245,235,0.4); }
 #proposal-a .pa-risk .p-approach-card {
   background: rgba(245,245,235,0.06);
@@ -469,7 +487,7 @@ html { -webkit-text-size-adjust: 100%; }
 }
 
 /* About/story/team inherit light section styles */
-#proposal-a .p-story-text p { color: var(--ink-70); }
+#proposal-a .p-story-text p { color: var(--ink-40); }
 #proposal-a .p-team-member { border-color: var(--ink-10); }
 #proposal-a .p-team-name { font-size: 1.5rem; color: var(--ink); }
 #proposal-a .p-team-toggle { border: 1px solid var(--ink-10); color: var(--ink-40); }
@@ -629,7 +647,7 @@ html { -webkit-text-size-adjust: 100%; }
     </div>
 
     <div class="p-section" id="pa-investment">
-      <div class="p-section-label p-reveal">Investment focus</div>
+      <div class="p-section-label p-reveal"><span class="p-section-num">01</span> Investment focus</div>
       <p class="p-who-intro p-reveal">We believe there are three critical and irrepressible industries that will impact and shape our world of tomorrow.</p>
       <p class="p-who-intro p-reveal">We also believe that these three sectors will offer some of the greatest opportunities for maximizing return to savvy investors.</p>
       <div class="pa-card p-reveal"><div class="p-card-illustration"><svg viewBox="0 0 320 200" fill="none"><rect width="320" height="200" fill="rgba(15,100,102,0.04)"/><rect x="110" y="40" width="100" height="100" rx="16" fill="var(--teal)" opacity="0.18"/><rect x="110" y="40" width="100" height="100" rx="16" stroke="var(--teal)" stroke-width="2.5" fill="none"/><rect x="132" y="62" width="56" height="56" rx="8" fill="var(--teal)" opacity="0.25"/><circle cx="148" cy="78" r="7" fill="var(--teal)" opacity="0.6"/><circle cx="172" cy="78" r="7" fill="var(--teal)" opacity="0.4"/><circle cx="148" cy="102" r="7" fill="var(--teal)" opacity="0.4"/><circle cx="172" cy="102" r="7" fill="var(--teal)" opacity="0.6"/><line x1="148" y1="78" x2="172" y2="102" stroke="var(--teal)" stroke-width="1.5" opacity="0.3"/><line x1="172" y1="78" x2="148" y2="102" stroke="var(--teal)" stroke-width="1.5" opacity="0.3"/><rect x="126" y="22" width="4" height="22" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="144" y="22" width="4" height="22" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="158" y="22" width="4" height="22" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="172" y="22" width="4" height="22" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="190" y="22" width="4" height="22" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="126" y="136" width="4" height="22" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="144" y="136" width="4" height="22" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="158" y="136" width="4" height="22" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="172" y="136" width="4" height="22" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="190" y="136" width="4" height="22" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="88" y="56" width="26" height="4" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="88" y="74" width="26" height="4" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="88" y="88" width="26" height="4" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="88" y="102" width="26" height="4" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="88" y="120" width="26" height="4" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="206" y="56" width="26" height="4" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="206" y="74" width="26" height="4" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="206" y="88" width="26" height="4" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="206" y="102" width="26" height="4" rx="2" fill="var(--teal)" opacity="0.5"/><rect x="206" y="120" width="26" height="4" rx="2" fill="var(--teal)" opacity="0.5"/><path d="M80 58 H62 V38" stroke="var(--teal)" stroke-width="2" opacity="0.25" stroke-linecap="round"/><path d="M240 58 H258 V38" stroke="var(--teal)" stroke-width="2" opacity="0.25" stroke-linecap="round"/><path d="M80 122 H58 V158" stroke="var(--teal)" stroke-width="2" opacity="0.25" stroke-linecap="round"/><path d="M240 122 H262 V158" stroke="var(--teal)" stroke-width="2" opacity="0.25" stroke-linecap="round"/><circle cx="62" cy="35" r="4" fill="var(--teal)" opacity="0.35"/><circle cx="258" cy="35" r="4" fill="var(--teal)" opacity="0.35"/><circle cx="58" cy="161" r="4" fill="var(--teal)" opacity="0.35"/><circle cx="262" cy="161" r="4" fill="var(--teal)" opacity="0.35"/></svg></div><div class="pa-card-num">01</div><h3 class="pa-card-title">Artificial Intelligence</h3><p class="pa-card-body">We believe artificial intelligence, in all its diversity and applications, will have a profound impact on our world of tomorrow.</p></div>
@@ -637,8 +655,10 @@ html { -webkit-text-size-adjust: 100%; }
       <div class="pa-card p-reveal" style="transition-delay:0.2s"><div class="p-card-illustration"><svg viewBox="0 0 320 200" fill="none"><rect width="320" height="200" fill="rgba(15,100,102,0.04)"/><path d="M160 170 C130 150 60 115 60 75 C60 50 78 35 100 35 C118 35 132 45 140 58 C148 45 162 35 180 35 C202 35 220 50 220 75 C220 115 190 150 160 170Z" fill="var(--teal)" opacity="0.15"/><path d="M160 170 C130 150 60 115 60 75 C60 50 78 35 100 35 C118 35 132 45 140 58 C148 45 162 35 180 35 C202 35 220 50 220 75 C220 115 190 150 160 170Z" stroke="var(--teal)" stroke-width="2.5" fill="none"/><path d="M50 100 L105 100 L118 70 L132 130 L146 55 L160 110 L168 85 L175 100 L270 100" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><circle cx="50" cy="100" r="3" fill="var(--teal)" opacity="0.4"/><circle cx="270" cy="100" r="3" fill="var(--teal)" opacity="0.4"/><circle cx="146" cy="55" r="5" fill="var(--teal)" opacity="0.3"/><circle cx="75" cy="55" r="2.5" fill="var(--teal)" opacity="0.15"/><circle cx="250" cy="60" r="2.5" fill="var(--teal)" opacity="0.15"/><circle cx="85" cy="155" r="2" fill="var(--teal)" opacity="0.12"/><circle cx="240" cy="150" r="2" fill="var(--teal)" opacity="0.12"/></svg></div><div class="pa-card-num">03</div><h3 class="pa-card-title">Health and Lifestyle</h3><p class="pa-card-body">We believe that the interplay between healthcare advancements and lifestyle choices will impact quality of life.</p></div>
     </div>
 
+    <div class="p-section" style="padding-bottom:0;">
+      <div class="p-section-label p-reveal"><span class="p-section-num">02</span> Our approach</div>
+    </div>
     <div class="pa-risk" id="pa-approach">
-      <div class="p-section-label p-reveal">Our approach</div>
       <p class="p-risk-intro p-reveal">Every potential investment consideration presents its own matrix of unique opportunities and challenges. Our investment decisions will rely on a rigorous algorithm of weighted-grade numerical results, deep analysis and comprehensive internal debate.</p>
       <div class="p-approach-grid p-reveal">
         <div class="p-approach-heading">Project factors</div>
@@ -662,10 +682,10 @@ html { -webkit-text-size-adjust: 100%; }
     </div>
 
     <div class="p-section" id="pa-about">
-      <div class="p-section-label p-reveal">About</div>
+      <div class="p-section-label p-reveal"><span class="p-section-num">03</span> About</div>
       <p class="p-who-intro p-reveal">Oakwater Capital is a Singapore-based licensed fund management company that aims to provide our investor clients with expert advice and focused investment vehicles targeting Artificial Intelligence, Environment &amp; Sustainability and Health &amp; Lifestyle sectors.</p>
       <div class="p-story-grid p-reveal">
-        <div class="p-section-label">Our story</div>
+        <div class="p-subsection-label">Our story</div>
         <div class="p-story-text">
           <p>For us lucky ones, we meet many good people throughout our careers – friends, colleagues, fellow professionals. Over many years, we stay in touch with those whom we grow to like, to trust, to respect and, if we are luckier still, to share similar values and visions.</p>
           <p>Sometimes, we are blessed with the opportunity to bring such people together, for a meaningful cause and a growing platform.</p>
@@ -673,7 +693,7 @@ html { -webkit-text-size-adjust: 100%; }
         </div>
       </div>
       <div style="margin-top:32px;">
-        <div class="p-section-label p-reveal">Our team</div>
+        <div class="p-subsection-label p-reveal">Our team</div>
         <div class="p-reveal">
           <div class="p-team-member"><div class="p-team-header" onclick="pToggle(this)"><img src="images/oakwater-julian.webp" alt="Julian Kim" class="p-team-photo" loading="lazy" width="48" height="48"><div class="p-team-name">Julian Kim</div><div class="p-team-toggle">+</div></div><div class="p-team-body"><div class="p-team-body-inner"><div class="p-team-bio"><p>Julian Kim has more than 30 years of experience in investment banking, capital markets and fixed income.</p><p>He is the former <strong>Chairman/Chief Country Officer/Managing Director</strong> of all <strong>Deutsche Bank</strong> group activities in Korea. Previously, he held senior executive positions at <strong>Lehman Brothers</strong>, <strong>Lazard</strong> and <strong>Manufacturers Hanover</strong>, now merged with <strong>JP Morgan</strong>.</p><p>Julian holds an MBA from Duke University and a BS in Aerospace Engineering from the University of Colorado (Boulder).</p></div></div></div></div>
           <div class="p-team-member"><div class="p-team-header" onclick="pToggle(this)"><img src="images/oakwater-stefan.webp" alt="Stefan Dorfmeister" class="p-team-photo" loading="lazy" width="48" height="48"><div class="p-team-name">Stefan Dorfmeister</div><div class="p-team-toggle">+</div></div><div class="p-team-body"><div class="p-team-body-inner"><div class="p-team-bio"><p>Stefan Dorfmeister is a proven 30 year financier and entrepreneur with vast buy/sell-side experience.</p><p>He is a former <strong>Managing Director</strong> of <strong>Goldman Sachs</strong> (Singapore) and previously served as Managing Director at <strong>Merrill Lynch</strong> and VP at <strong>JP Morgan</strong>.</p><p>Stefan holds an MBA from Harvard Business School and a Doctorate/PhD in Economics from Vienna University.</p></div></div></div></div>
@@ -692,7 +712,7 @@ html { -webkit-text-size-adjust: 100%; }
         <div><p>Company Registration Number UEN 202140970E</p><p style="margin-top:12px">Venture Capital Fund Management License CMS101340</p><p>Issued by the Monetary Authority of Singapore</p></div>
       </div>
       <div class="p-footer-bottom">
-        <div class="p-footer-social"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">Tumblr</a><a href="#">Twitter</a></div>
+        <div class="p-footer-social"><a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="#" aria-label="Tumblr"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.089 9.895 0 9.99 0h3.766v6.114h4.15v3.633h-4.15v7.418c0 1.996.931 2.686 2.417 2.686h1.827V24h-3.437z"/></svg></a><a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></div>
         <div class="p-footer-copy">&copy; 2025 Oakwater Capital Pte. Ltd.</div>
       </div>
     </div>

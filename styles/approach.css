@@ -5,10 +5,10 @@
 }
 .risk .section-label { color: var(--teal-dark); }
 .risk-intro {
-  font-family: var(--serif);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-family: var(--sans);
+  font-size: 1.125rem;
   font-weight: 400;
-  line-height: 0.917;
+  line-height: 1.5;
   letter-spacing: -0.02em;
   color: rgba(245,245,235,0.75);
   max-width: 600px;
@@ -31,9 +31,6 @@
   gap: 14px;
   opacity: 0;
   transform: translateY(16px);
-  animation: approach-card-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: calc(var(--i, 0) * 0.06s);
-  animation-play-state: paused;
   transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   font-family: var(--serif);
   font-size: 1.125rem;
@@ -41,9 +38,7 @@
   line-height: 1.2;
   color: rgba(245,245,235,0.85);
 }
-@keyframes approach-card-in {
-  to { opacity: 1; transform: translateY(0); }
-}
+/* approach-card-in animation handled by anime.js */
 .approach-a-card:hover {
   background: rgba(75, 142, 137, 0.12);
   border-color: rgba(75, 142, 137, 0.3);
@@ -64,10 +59,9 @@
 .approach-a-card:hover svg { opacity: 1; }
 .approach-a-heading {
   grid-column: 1 / -1;
-  font-family: var(--nav);
+  font-family: var(--sans);
   font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.15em;
+  font-weight: 500;
   color: rgba(245,245,235,0.4);
   padding-bottom: 12px;
   margin-top: 24px;

@@ -47,15 +47,14 @@
 }
 .footer-social { display: flex; gap: 24px; }
 .footer-social a {
-  font-family: var(--nav);
+  font-family: var(--sans);
   font-size: 1rem;
   line-height: 1;
-  letter-spacing: 0.094em;
   color: rgba(245,245,235,0.55);
 }
 .footer-social a:hover { color: rgba(245,245,235,0.8); }
 .footer-copy {
-  font-family: var(--nav);
+  font-family: var(--sans);
   font-size: 1rem;
   color: rgba(245,245,235,0.55);
 }
