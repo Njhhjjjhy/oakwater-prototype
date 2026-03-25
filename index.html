@@ -397,7 +397,8 @@
   </div></div>
 </footer>
 
-<script src="node_modules/animejs/dist/bundles/anime.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/animejs@4.3.6/dist/bundles/anime.umd.min.js"></script>
+<script>if(typeof anime==='undefined'){document.querySelectorAll('.hero-word,.reveal,.approach-a-card,.invest-card-tags li,.quote-word').forEach(function(el){el.style.opacity='1';el.style.transform='none';});}</script>
 <script src="script.js"></script>
 
 <script>if(location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:'){var s=document.createElement('script');s.src='js/dev-breakpoints.js';document.body.appendChild(s);}</script>
