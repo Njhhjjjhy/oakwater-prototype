@@ -112,7 +112,7 @@ body {
 
 @supports (-webkit-touch-callout: none) {
   body { background: var(--sand); }
-  .hero-wrap { min-height: auto; }
+  .hero-wrap { min-height: calc(100svh - 64px); }
   .nav { position: -webkit-sticky; position: sticky; }
 }
 
@@ -174,7 +174,8 @@ body {
   display: block;
   font-size: 1rem;
   font-weight: 400;
-  opacity: 0.5;
+  opacity: 1;
+  color: var(--ink-40);
   margin-bottom: 4px;
 }
 .subsection-label {

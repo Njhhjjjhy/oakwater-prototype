@@ -4,6 +4,7 @@
   border-radius: 12px;
   position: relative;
   overflow: hidden;
+  padding: 32px 40px;
 }
 .risk .section-label { color: var(--teal-dark); }
 .risk-intro {
@@ -17,7 +18,44 @@
   margin-bottom: 24px;
 }
 
-/* ── Approach grid ── */
+/* ── Toggle tabs ── */
+.approach-tabs {
+  display: inline-flex;
+  background: rgba(245,245,235,0.08);
+  border-radius: 10px;
+  padding: 3px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.approach-tab {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(245,245,235,0.5);
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: color 0.25s;
+}
+.approach-tab.is-active {
+  color: rgba(245,245,235,0.95);
+  background: rgba(245,245,235,0.12);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* ── Panels ── */
+.approach-panel {
+  display: none;
+}
+.approach-panel.is-active {
+  display: block;
+}
+
+/* ── Card grid ── */
 .approach-a-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -55,12 +93,6 @@
   opacity: 0.4;
   pointer-events: none;
 }
-.approach-a-card:hover {
-  background: rgba(75, 142, 137, 0.12);
-  border-color: rgba(75, 142, 137, 0.3);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-}
 .approach-a-card svg {
   width: 22px;
   height: 22px;
@@ -70,23 +102,4 @@
   fill: none;
   margin-top: 2px;
   opacity: 0.7;
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.approach-a-card:hover svg { opacity: 1; }
-.approach-a-heading {
-  grid-column: 1 / -1;
-  font-family: var(--sans);
-  font-size: 1rem;
-  font-weight: 500;
-  color: rgba(245,245,235,0.4);
-  padding-bottom: 12px;
-  margin-top: 24px;
-}
-.approach-a-heading:first-child { margin-top: 0; }
-
-.approach-a-divider {
-  grid-column: 1 / -1;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(245,245,235,0.02) 0%, rgba(75,142,137,0.3) 50%, rgba(245,245,235,0.02) 100%);
-  margin-top: 8px;
 }

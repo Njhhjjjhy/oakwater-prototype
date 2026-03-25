@@ -1,6 +1,32 @@
-// ── Nav scroll state ──
+// ── Nav scroll state (hide on scroll down, reveal on scroll up) ──
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10), { passive: true });
+let lastScrollY = window.scrollY;
+let navHidden = false;
+
+window.addEventListener('scroll', () => {
+  const currentY = window.scrollY;
+  nav.classList.toggle('scrolled', currentY > 10);
+
+  // Don't hide nav at the very top
+  if (currentY <= 10) {
+    if (navHidden) { nav.classList.remove('nav-hidden'); navHidden = false; }
+    lastScrollY = currentY;
+    return;
+  }
+
+  // Scrolling down — hide nav
+  if (currentY > lastScrollY && !navHidden) {
+    nav.classList.add('nav-hidden');
+    navHidden = true;
+  }
+  // Scrolling up — show nav
+  else if (currentY < lastScrollY && navHidden) {
+    nav.classList.remove('nav-hidden');
+    navHidden = false;
+  }
+
+  lastScrollY = currentY;
+}, { passive: true });
 
 // ── Reduced motion check ──
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -16,10 +42,24 @@ if (!prefersReducedMotion) {
   heroTl.add('.hw-3', { translateY: [60, 0], opacity: [0, 1], duration: 1000 }, 660);
   // Subtitle slides in from further away, slightly delayed
   heroTl.add('.hw-4', { translateY: [40, 0], opacity: [0, 1], duration: 1200, ease: anime.spring({ stiffness: 50, damping: 15 }) }, 900);
+  // Scroll CTA fades in last
+  heroTl.add('.scroll-cta', { opacity: [0, 1], translateY: [20, 0], duration: 800, ease: 'outQuad' }, 1800);
 } else {
   document.querySelectorAll('.hero-word').forEach(w => {
     w.style.opacity = '1';
     w.style.transform = 'none';
+  });
+  const cta = document.querySelector('.scroll-cta');
+  if (cta) cta.style.opacity = '1';
+}
+
+// ── Smooth scroll for CTA ──
+const scrollCta = document.querySelector('.scroll-cta a');
+if (scrollCta) {
+  scrollCta.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
   });
 }
 
@@ -62,6 +102,7 @@ function openMenu() {
   hamburger.classList.add('active');
   mm.classList.add('open');
   hamburger.setAttribute('aria-expanded', 'true');
+  mm.setAttribute('aria-hidden', 'false');
   lockScroll();
 
   // Hamburger icon → X
@@ -103,6 +144,7 @@ function closeMenu() {
   if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
   hamburger.classList.remove('active');
   hamburger.setAttribute('aria-expanded', 'false');
+  mm.setAttribute('aria-hidden', 'true');
 
   // X → hamburger icon (delayed so circle starts closing first)
   anime.animate(hbSpans[0], {
@@ -335,57 +377,66 @@ if (quoteWrap) {
   quoteObs.observe(quoteWrap);
 }
 
-// ── Approach grid — anime.js wave stagger + icon stroke draw ──
-const aGrid = document.querySelector('.approach-a-grid');
+// ── Approach tabs ──
+function animateApproachCards(grid) {
+  const cards = grid.querySelectorAll('.approach-a-card');
+  if (!prefersReducedMotion) {
+    cards.forEach(c => {
+      c.style.opacity = '0';
+      c.style.transform = 'translateY(16px)';
+    });
+    const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+    const staggerOpts = cols > 1
+      ? anime.stagger(60, { start: 100, grid: [cols, Math.ceil(cards.length / cols)], from: 'first' })
+      : anime.stagger(50, { start: 100 });
+    anime.animate(cards, {
+      translateY: [16, 0],
+      opacity: [0, 1],
+      duration: 700,
+      ease: anime.spring({ stiffness: 100, damping: 14 }),
+      delay: staggerOpts,
+    });
+    cards.forEach((card, i) => {
+      const paths = card.querySelectorAll('svg path, svg circle, svg line, svg polyline, svg rect');
+      paths.forEach(p => {
+        if (p.getTotalLength) {
+          const len = p.getTotalLength();
+          p.setAttribute('stroke-dasharray', len);
+          p.setAttribute('stroke-dashoffset', len);
+          anime.animate(p, {
+            strokeDashoffset: [len, 0],
+            duration: 800,
+            ease: 'outExpo',
+            delay: 200 + i * 50,
+          });
+        }
+      });
+    });
+  } else {
+    cards.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+  }
+}
+
+// Tab switching
+document.querySelectorAll('.approach-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.tab;
+    document.querySelectorAll('.approach-tab').forEach(t => t.classList.remove('is-active'));
+    document.querySelectorAll('.approach-panel').forEach(p => p.classList.remove('is-active'));
+    tab.classList.add('is-active');
+    const panel = document.querySelector(`.approach-panel[data-panel="${target}"]`);
+    panel.classList.add('is-active');
+    animateApproachCards(panel.querySelector('.approach-a-grid'));
+  });
+});
+
+// Initial reveal on scroll
+const aGrid = document.querySelector('.approach-panel.is-active .approach-a-grid');
 if (aGrid) {
   const gridObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
-
-      const cards = e.target.querySelectorAll('.approach-a-card');
-
-      if (!prefersReducedMotion) {
-        cards.forEach(c => {
-          c.style.animation = 'none';
-          c.style.opacity = '0';
-          c.style.transform = 'translateY(16px)';
-        });
-
-        const cols = getComputedStyle(e.target).gridTemplateColumns.split(' ').length;
-        const staggerOpts = cols > 1
-          ? anime.stagger(60, { start: 100, grid: [cols, Math.ceil(cards.length / cols)], from: 'first' })
-          : anime.stagger(50, { start: 100 });
-        anime.animate(cards, {
-          translateY: [16, 0],
-          opacity: [0, 1],
-          duration: 700,
-          ease: anime.spring({ stiffness: 100, damping: 14 }),
-          delay: staggerOpts,
-        });
-
-        cards.forEach((card, i) => {
-          const paths = card.querySelectorAll('svg path, svg circle, svg line, svg polyline, svg rect');
-          paths.forEach(p => {
-            if (p.getTotalLength) {
-              const len = p.getTotalLength();
-              p.setAttribute('stroke-dasharray', len);
-              p.setAttribute('stroke-dashoffset', len);
-              anime.animate(p, {
-                strokeDashoffset: [len, 0],
-                duration: 800,
-                ease: 'outExpo',
-                delay: 200 + i * 50,
-              });
-            }
-          });
-        });
-      } else {
-        cards.forEach(el => {
-          el.style.opacity = '1';
-          el.style.transform = 'none';
-        });
-      }
-
+      animateApproachCards(e.target);
       gridObs.unobserve(e.target);
     });
   }, { threshold: 0.1 });

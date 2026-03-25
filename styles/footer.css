@@ -1,6 +1,6 @@
 .footer {
   background: var(--ink);
-  color: rgba(245,245,235,0.55);
+  color: rgba(245,245,235,0.65);
   padding: 32px 0 0;
   border-radius: 12px 12px 0 0;
   position: relative;
@@ -34,7 +34,7 @@
 .footer-logo-text span {
   font-family: var(--sans);
   font-weight: 400;
-  color: rgba(245,245,235,0.5);
+  color: rgba(245,245,235,0.65);
   margin-left: 4px;
 }
 .footer p {
@@ -56,8 +56,13 @@
   font-family: var(--sans);
   font-size: 1rem;
   line-height: 1;
-  color: rgba(245,245,235,0.55);
+  color: rgba(245,245,235,0.65);
   position: relative;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .footer-social a::after {
   content: '';
@@ -76,5 +81,5 @@
 .footer-copy {
   font-family: var(--sans);
   font-size: 1rem;
-  color: rgba(245,245,235,0.55);
+  color: rgba(245,245,235,0.65);
 }
